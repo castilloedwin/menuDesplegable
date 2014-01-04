@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+	<meta name="keywords" content="menu desplegable, menu responsive, menu simple">
+	<meta name="description" content="Menú Desplegable sensible para todos los dispositivos">
+	<meta name="author" content="Web Developer: @castilloe2 - Edwin Castillo">
+	<meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no">
+	<link href="styles/menu.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="js/modernizr.js"></script>
+	<title>Menú Desplegable</title>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="contentHeader">
+				<ul>
+					<li><a href="#">Inicio</a></li>
+
+					<li class="q"><a href="#">Quiénes Somos</a>
+						<ul>
+							<li><a href="#">Nuestra Misión</a></li>
+							<li><a href="#">Nuestra Visión</a></li>
+						</ul>
+					</li>
+
+
+					<li class="q"><a href="#">Portafolio</a>
+						<ul>
+							<li><a href="#">Diseño Gráfico</a></li>
+							<li><a href="#">Diseño Web</a></li>
+							<li class="r"><a href="#">Marketing Digital</a>
+								<ul>
+									<li><a href="#">Facebook</a></li>
+									<li><a href="#">Twitter</a></li>
+									<li><a href="#">LinkedIn</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li><a href="#">Historia</a></li>
+					<li><a href="#">Contáctenos</a></li>
+				</ul>
+			</div>
+		</header>
+		<div id="mainContent">
+			<h1>Menú Desplegable v. 1.0</h1>
+			<p>Es un menú desplegable, dando al usuario justo lo que necesita, que es poder tener acceso a múltiples opciones que brinda la Web. Su sencillez permite al usuario tener una experiencia de navegación bastante cómoda. A continuación veremos como implementarlo:</p>
+
+			<h2>Estructura HTML</h2>
+			<pre>
+&lt;header&gt;
+   &lt;div id=&quot;contentHeader&quot;&gt;
+      &lt;ul&gt;
+         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;q&quot;&gt;&lt;a href=&quot;#&quot;&gt;Quiénes Somos&lt;/a&gt;
+            &lt;ul&gt;
+               &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Nuestra Misión&lt;/a&gt;&lt;/li&gt;
+               &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Nuestra Visión&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+         &lt;/li&gt;
+         &lt;li class=&quot;q&quot;&gt;&lt;a href=&quot;#&quot;&gt;Portafolio&lt;/a&gt;
+            &lt;ul&gt;
+               &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Diseño Gráfico&lt;/a&gt;&lt;/li&gt;
+               &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Diseño Web&lt;/a&gt;&lt;/li&gt;
+               &lt;li class=&quot;r&quot;&gt;&lt;a href=&quot;#&quot;&gt;Marketing Digital&lt;/a&gt;
+                  &lt;ul&gt;
+                     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+                  &lt;/ul&gt;
+               &lt;/li&gt;
+           &lt;/ul&gt;
+         &lt;/li&gt;
+         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Historia&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contáctenos&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/header&gt;
+			</pre>
+			<h2>CSS</h2>
+			<pre>
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #A3A3A3;
+	position: relative;
+	z-index: 2;
+}
+
+header #contentHeader{
+	height: 100%;
+	margin: 0 auto;
+	background-color: #2DB5EB;
+}
+
+header #contentHeader ul{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+header #contentHeader ul li{
+	display: inline-block;
+	margin-left: -7px;
+
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+}
+
+header #contentHeader ul li.q{
+	background-image: url(../images/arrow.png)!important;
+	background-position: 92% 49%;
+	background-repeat: no-repeat;
+}
+
+header #contentHeader ul li:first-child{
+	margin: 0;
+}
+
+header #contentHeader ul li a{
+	height: 43px;
+	padding-top: 7px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	border-right: solid 1px #43A9E2;
+	display: block;
+}
+
+header #contentHeader ul li:hover{
+	background-color: #36A6DB;
+}
+
+header #contentHeader ul ul{
+	width: 188px;
+	font-size: 0.9em;
+	position: absolute;
+	top: 0;
+	background-color: #F7F7F7; /* Color del Submenú */
+	box-shadow: 0 2px 4px #C0C0C0;
+	visibility: hidden;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	z-index: -1;
+
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	-o-transition: all 0.1s;
+}
+
+header #contentHeader ul ul li{
+	display: block;
+	margin: 0;
+}
+
+header #contentHeader ul li.q:hover ul{
+	top: 50px;
+	visibility: visible;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+header #contentHeader ul ul li a{
+	border-bottom: solid 1px #E7E7E7;
+	border-right: none;
+}
+
+header #contentHeader ul ul li.r{
+	background-image: url(../images/arrow2.png)!important;
+	background-position: 92% 49%;
+	background-repeat: no-repeat;
+}
+
+header #contentHeader ul ul ul{
+	width: 188px;
+	font-size: 0.9em;
+	position: absolute;
+	top: 102px!important;
+	left: 120px;
+	background-color: #F7F7F7; /* Color del Submenú */
+	box-shadow: 0 2px 4px #C0C0C0;
+	visibility: hidden!important;
+	opacity: 0!important;
+	filter: alpha(opacity = 0)!important;
+	z-index: -1;
+
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	-o-transition: all 0.1s;
+}
+
+header #contentHeader ul ul li.r:hover ul{
+	left: 187px;
+	visibility: visible!important;
+	opacity: 1!important;
+	filter: alpha(opacity = 100)!important;
+}
+			</pre>
+		</div>
+		<footer>
+			<p>By <a href="https://twitter.com/Castilloe2" target="_blank">@Castilloe2</a></p>
+		</footer>
+	</div>
+</body>
+</html>
